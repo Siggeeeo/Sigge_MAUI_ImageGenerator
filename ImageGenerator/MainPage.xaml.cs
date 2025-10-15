@@ -6,15 +6,30 @@ namespace ImageGenerator
 {
     public partial class MainPage : ContentPage
     {
-        static private bool _isFavorite;
+        private class  ImageItem
+        {
+            public string ImageName { get; set; }
+            public string ImageDescription { get; set; }
+            public bool IsFavorite { get; set; }
+        }
 
-        private Dictionary<string, string> ImageList = new()
+        //private Dictionary<string, string> ImageList = new()
+        private readonly List<ImageItem> _images=new()
             {
-                {"image1", "Man" },
-                {"image2", "Bird" },
-                {"image3", "Big cat" },
-                {"image4", "Autumn road" },
-                {"image5", "Flowergirl" }
+                new ImageItem { ImageName = "image1", ImageDescription = "Man" },
+                new ImageItem { ImageName = "image2", ImageDescription = "Bird" },
+                new ImageItem { ImageName = "image3", ImageDescription = "Big cat" },
+                new ImageItem { ImageName = "image4", ImageDescription = "Autumn road" },
+                new ImageItem { ImageName = "image5", ImageDescription = "Flowergirl" },
+                new ImageItem { ImageName = "image6", ImageDescription = "Two small cats" },
+                new ImageItem { ImageName = "image7", ImageDescription = "Cow" },
+                new ImageItem { ImageName = "image8", ImageDescription = "Dog" },
+                new ImageItem { ImageName = "image9", ImageDescription = "Palm tree" },
+                new ImageItem { ImageName = "image10", ImageDescription = "City" }
+
+
+
+
             };
 
 

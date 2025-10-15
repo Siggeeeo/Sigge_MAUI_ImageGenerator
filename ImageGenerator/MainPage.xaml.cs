@@ -13,7 +13,6 @@ namespace ImageGenerator
             public bool IsFavorite { get; set; }
         }
 
-        //private Dictionary<string, string> ImageList = new()
         private readonly List<ImageItem> _images=new()
             {
                 new ImageItem { ImageName = "image1", ImageDescription = "Man" },
@@ -32,6 +31,8 @@ namespace ImageGenerator
 
             };
 
+        private ImageItem _currentImage;
+
 
         private Random random = new();
 
@@ -47,18 +48,16 @@ namespace ImageGenerator
 
         private void ShowImageAndText()
         {
+            int randomIndex =random.Next(_images.Count);
+            _currentImage = _images[randomIndex];
 
-            //var singleKeys = ImageList.Keys.ToList(); // en lokal lista av det första paret i en Dictionary
+            string imageName = GetImageFileEnding(_currentImage.ImageName);
 
-            var pairs = ImageList.ElementAt(random.Next(ImageList.Count));
+            ShowGallery.Source = imageName;
+            ImageText.Text = _currentImage.ImageDescription;
 
-            Debug.WriteLine(pairs.Key + ": " + pairs.Value); // för testning i Output
+            UpdateFavoriteButtonVisuals();
 
-            string showKey = GetImageFileEnding(pairs.Key); // detta då enbart Windows kräver filändelse
-
-            ShowGallery.Source = showKey;
-
-            ImageText.Text = pairs.Value;
         }
 
         private string GetImageFileEnding(string imageKey)
@@ -73,9 +72,20 @@ namespace ImageGenerator
 
         private void OnFavoriteClicked(object sender, EventArgs e)
         {
-            _isFavorite = !_isFavorite;
+            if (_currentImage == null) return;
 
-            if (_isFavorite)
+            _currentImage.IsFavorite = !_currentImage.IsFavorite;
+
+            UpdateFavoriteButtonVisuals();
+
+
+            }
+
+        private void UpdateFavoriteButtonVisuals()
+        {
+            if (_currentImage ==null )
+
+                if (_currentImage.IsFavorite)
             {
                 FavoriteButton.Source = new FontImageSource
                 {
@@ -94,13 +104,10 @@ namespace ImageGenerator
                     Size = 32,
                     Color = Colors.Gray
                 };
-            }
+
         }
 
-        //public event PropertyChangedEventHandler PropertyChanged;
-
-        //protected void OnPropertyChanged([CallerMemberName] string name = null)
-        //    => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
 
     }
 }

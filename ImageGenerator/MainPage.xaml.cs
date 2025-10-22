@@ -57,11 +57,11 @@ namespace ImageGenerator
 
         private string GetImageFileEnding(string imageKey)
         {
-#if WINDOWS
+            #if WINDOWS
                 return imageKey + ".jpg";
-#else
+            #else
             return imageKey;
-#endif
+            #endif
         }
 
         private void OnFavoriteClicked(object sender, EventArgs e)

@@ -48,7 +48,7 @@
 
             <Button
                 Text="Ny bild" 
-                SemanticProperties.Hint="showes a new image when you click"
+                SemanticProperties.Hint="shows a new image when you click"
                 Clicked="ImageOnClicked"
                 HorizontalOptions="Fill" />
         </VerticalStackLayout>

@@ -83,7 +83,7 @@ namespace ImageGenerator
 
         private void UpdateFavoriteButtonVisuals()
         {
-            if (_currentImage ==null )
+            if (_currentImage != null )
 
                 if (_currentImage.IsFavorite)
             {

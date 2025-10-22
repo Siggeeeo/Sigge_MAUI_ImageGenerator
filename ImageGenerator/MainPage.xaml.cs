@@ -39,6 +39,7 @@ namespace ImageGenerator
         public MainPage()
         {
             InitializeComponent();
+            ShowImageAndText();
         }
 
         private void ImageOnClicked(object? sender, EventArgs e)

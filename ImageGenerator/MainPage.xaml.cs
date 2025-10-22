@@ -77,12 +77,13 @@ namespace ImageGenerator
         {
             if (_currentImage == null) return;
 
+            _currentImage.IsFavorite = !_currentImage.IsFavorite;
+
             if (_currentImage.IsFavorite)
             {
                 _favoriteStack.Push(_currentImage);
             }
 
-            _currentImage.IsFavorite = !_currentImage.IsFavorite;
 
             UpdateFavoriteButtonVisuals();
 

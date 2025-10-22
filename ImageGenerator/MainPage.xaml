@@ -24,13 +24,15 @@
                 x:Name="ImageText"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
+
             
             <ImageButton x:Name="FavoriteButton"
                      WidthRequest="40"
                      HeightRequest="40"
                      BackgroundColor="Transparent"
                      Clicked="OnFavoriteClicked">
-                <ImageButton.Source>
+
+            <ImageButton.Source>
                     
                     <FontImageSource Glyph="&#xE87E;"
                                  FontFamily="MaterialIcons"
@@ -38,6 +40,11 @@
                                  Color="Gray"/>
                 </ImageButton.Source>
             </ImageButton>
+            
+            <Button 
+                Text="Senaste favorit"
+                Clicked="OnShowLastFavoriteClicked"
+                />
 
             <Button
                 Text="Ny bild" 
